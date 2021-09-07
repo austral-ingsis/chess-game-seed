@@ -17,7 +17,7 @@ public class App {
         System.out.println();
         System.out.println();
 
-        while(shouldStop()) {
+        while(shouldContinue()) {
             printCurrentPlayerTurn();
             System.out.println();
             printBoard(boardPrinter);
@@ -44,7 +44,7 @@ public class App {
         return "Someone"; //TODO Implement!
     }
 
-    private static boolean shouldStop() {
+    private static boolean shouldContinue() {
         return true; //TODO Implement!
     }
 
