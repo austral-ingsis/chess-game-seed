@@ -3,10 +3,10 @@ package australchess.cli;
 import java.util.List;
 import java.util.Optional;
 
-// Improve if you like, this is a naive implementation
-public class BoardSerializer {
-
-    public static String serialize(List<BoardPosition> positions) {
+// Improve or create a new implementation if you like, this is a naive implementation
+public class DefaultBoardPrinter implements BoardPrinter {
+    @Override
+    public String print(List<BoardPosition> positions) {
         var files = List.of('h', 'g', 'f', 'e', 'd', 'c', 'b', 'a');
         var ranks = List.of(1, 2, 3, 4, 5, 6, 7, 8);
         var builder = new StringBuilder();

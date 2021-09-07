@@ -9,6 +9,8 @@ import java.util.Scanner;
 // TODO: Fill in!
 public class App {
     public static void main(String[] args) throws IOException {
+        final BoardPrinter boardPrinter = new DefaultBoardPrinter();
+
         printHeader();
         final var firstPlayerId = askForString("Name of player that moves white: ");
         final var secondPlayerId = askForString("Name of player that moves black: ");
@@ -18,7 +20,7 @@ public class App {
         while(shouldStop()) {
             printCurrentPlayerTurn();
             System.out.println();
-            printBoard();
+            printBoard(boardPrinter);
             final var positionFrom = askForPosition("Enter position of the piece you want to move");
             final var positionTo = askForPosition("Enter position of cell you want to move it to");
             move(positionFrom, positionTo);
@@ -27,10 +29,10 @@ public class App {
         }
     }
 
-    private static void printBoard() {
+    private static void printBoard(BoardPrinter boardPrinter) {
         // TODO: provide the board somehow.
         var positions = new DefaultSomethingClass().getPiecePositions();
-        var boardAsString = BoardSerializer.serialize(positions);
+        var boardAsString = boardPrinter.print(positions);
         System.out.println(boardAsString);
     }
 
